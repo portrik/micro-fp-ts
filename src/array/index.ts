@@ -8,3 +8,4 @@ export * from './filled-array/filled-array';
 export * from './in-array/in-array';
 export * from './is-sorted/is-sorted';
 export * from './map-array/map-array';
+export * from './unordered-array-remove/unordered-array-remove';

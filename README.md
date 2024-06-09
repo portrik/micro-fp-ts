@@ -20,3 +20,4 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 - [in-array](./src/array/in-array/README.md)
 - [is-sorted](./src/is-sorted/README.md)
 - [map-array](./src/array/map-array/README.md)
+- [unordered-array-remove](./src/array/unordered-array-remove/README.md)
