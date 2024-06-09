@@ -1,5 +1,5 @@
+import { array } from '../../../src';
 import { default as fixtures } from './fixtures.json' assert { type: 'json'};
-import { isSorted } from '../../../src';
 
 const comparators = {
 	descending: function(a: number, b: number): number { return b - a; },
@@ -7,8 +7,8 @@ const comparators = {
 };
 
 describe('is-sorted', () => {
-	test.each(fixtures)('Returns $expected for $array', ({ array, expected, comparator }) => {
-		const actual = isSorted(array, comparator === 'descending' ? comparators.descending : comparators.ascending);
+	test.each(fixtures)('Returns $expected for $array', ({ array: input, expected, comparator }) => {
+		const actual = array.isSorted(input, comparator === 'descending' ? comparators.descending : comparators.ascending);
 
 		expect(actual).toEqual(expected);
 	});
