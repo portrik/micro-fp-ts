@@ -13,5 +13,6 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 - [array-first](./src/array/array-first/README.md)
 - [array-flatten](./src/array/array-flatten/README.md)
 - [array-last](./src/array/array-last/README.md)
+- [array-range](./src/array/array-range/README.md)
 - [deduplicate](./src/array/deduplicate/README.md)
 - [is-sorted](./src/is-sorted/README.md)
