@@ -5,5 +5,6 @@ export * from './array-last/array-last';
 export * from './array-range/array-range';
 export * from './deduplicate/deduplicate';
 export * from './filled-array/filled-array';
+export * from './in-array/in-array';
 export * from './is-sorted/is-sorted';
 export * from './map-array/map-array';

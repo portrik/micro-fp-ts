@@ -17,4 +17,6 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 - [array-range](./src/array/array-range/README.md)
 - [deduplicate](./src/array/deduplicate/README.md)
 - [filled-array](./src/array/filled/array/README.md)
+- [in-array](./src/array/in-array/README.md)
 - [is-sorted](./src/is-sorted/README.md)
+- [map-array](./src/array/map-array/README.md)
