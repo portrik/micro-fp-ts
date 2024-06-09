@@ -11,7 +11,6 @@ export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.recommended,
 	{
-		...unicorn.recommended,
 		...sonarjs.configs.recommended,
 		...stylistic.configs['recommended-flat'],
 		languageOptions: {
@@ -24,9 +23,11 @@ export default tseslint.config(
 		},
 		plugins: {
 			functional,
+			unicorn,
 			'@stylistic': stylistic,
 		},
 		rules: {
+			...unicorn.configs['flat/recommended'].rules,
 			...functional.configs?.['strict']?.rules,
 			...functional.configs?.['stylistic']?.rules,
 			'@stylistic/indent': ['error', 'tab'],
@@ -50,6 +51,7 @@ export default tseslint.config(
 			}],
 			'functional/prefer-immutable-types': ['error', { 'enforcement': 'ReadonlyDeep' }],
 			'functional/type-declaration-immutability': ['off'],
+			'unicorn/no-array-callback-reference': ['off']
 		},
 	},
 	{

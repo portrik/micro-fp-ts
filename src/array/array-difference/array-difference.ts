@@ -21,7 +21,7 @@ function defaultComparator<Value>(left: Value, right: Value): boolean {
  */
 function arrayDifference<Content>(left: ReadonlyArray<Content>, right: ReadonlyArray<Content>, comparator: Comparator<Content> = defaultComparator): ReadonlyArray<Content> {
 	return left
-		.filter((element: Content): boolean => !right.find((rightElement: Content): boolean => comparator(element, rightElement)));
+		.filter((element: Content): boolean => !right.some((rightElement: Content): boolean => comparator(element, rightElement)));
 }
 
 export { arrayDifference };

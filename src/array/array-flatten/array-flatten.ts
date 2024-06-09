@@ -25,10 +25,8 @@ function isArray<Content>(value: unknown): value is ReadonlyArray<Content> {
  * @returns Infinitely flattened array
  */
 function arrayFlatten<Content>(array: NestedArray<Content>): ReadonlyArray<Content> {
-	// Array.prototype.flat has a hard-to-appease typing. It would be easier to use it, however this approach keeps typing in check.
 	return array
-		.map((value: Content | NestedArray<Content>): ReadonlyArray<Content> => isArray(value) ? arrayFlatten(value) : [value])
-		.reduce((previous: ReadonlyArray<Content>, current: ReadonlyArray<Content>): ReadonlyArray<Content> => [...previous, ...current], []);
+		.flatMap((value: Content | NestedArray<Content>): ReadonlyArray<Content> => isArray(value) ? arrayFlatten(value) : [value]);
 };
 
 export { arrayFlatten };
