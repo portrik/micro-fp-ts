@@ -13,11 +13,8 @@ type Comparator<Content> = (a: Content, b: Content) => number;
  */
 function mapToPairs<Content>(current: Content, index: number, array: ReadonlyArray<Content>): Option<Readonly<[Content, Content]>> {
 	const next = array[index + 1];
-	if (next == null) {
-		return none;
-	}
 
-	return some([current, next]);
+	return next == null ? none : some([current, next]);
 }
 
 /**

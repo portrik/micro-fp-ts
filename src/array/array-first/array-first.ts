@@ -5,7 +5,12 @@
  * Licensed under the MIT license.
  */
 
+// fp-ts functions can be without arguments
+/* eslint-disable functional/functional-parameters */
 import { Option, none, some } from 'fp-ts/Option';
+import { fromArray } from 'fp-ts/ReadonlyArray';
+import { match } from 'fp-ts/boolean';
+import { pipe } from 'fp-ts/lib/function';
 
 /**
  * Get the first element from an array.
@@ -54,14 +59,16 @@ function arrayFirst<Content>(array: ReadonlyArray<Content>, size: 1): Option<Con
  */
 function arrayFirst<Content>(array: ReadonlyArray<Content>, size: number): Option<Content[]>;
 
-function arrayFirst<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<Content | Content[]> {
-	const first = array.slice(0, size);
-	if (first.length === 0 || size < 1) {
-		return none;
-	}
+function arrayFirst<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<NonNullable<Content> | ReadonlyArray<Content>> {
+	const slice = fromArray(array.slice(0, size));
 
-	// Non-null assertion is guaranteed to be non-issue by the argument above.
-	return some(size === 1 ? first[0]! : first);
+	return pipe(
+		slice.length > 0 && size > 0,
+		match(
+			(): Option<never> => none,
+			(): Option<NonNullable<Content> | ReadonlyArray<Content>> => some(size === 1 ? slice[0]! : slice)
+		)
+	);
 };
 
 export { arrayFirst };

@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "array"
+        "array",
+        "eslint"
     ]
 }

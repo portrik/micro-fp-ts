@@ -5,7 +5,11 @@
  * Released under the MIT License.
  */
 
+// fp-ts functions can be without arguments
+/* eslint-disable functional/functional-parameters */
 import { Option, none, some } from 'fp-ts/lib/Option';
+import { match } from 'fp-ts/lib/boolean';
+import { pipe } from 'fp-ts/lib/function';
 
 /**
  * Get the last element from an array.
@@ -54,18 +58,21 @@ function arrayLast<Content>(array: ReadonlyArray<Content>, size: 1): Option<Cont
  */
 function arrayLast<Content>(array: ReadonlyArray<Content>, size: number): Option<Content>;
 
-function arrayLast<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<Content | Content[]> {
-	const last = [...array]
-		.reverse()
-		.slice(0, size)
-		.reverse();
+function arrayLast<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<NonNullable<Content> | ReadonlyArray<Content>> {
+	const lastSlice: ReadonlyArray<Content>= pipe(
+		array,
+		(initialArray: ReadonlyArray<Content>): ReadonlyArray<Content> => [...initialArray].reverse(),
+		(reversed: ReadonlyArray<Content>): ReadonlyArray<Content> => reversed.slice(0, size),
+		(slice: ReadonlyArray<Content>): ReadonlyArray<Content> => [...slice].reverse(),
+	);
 
-	if (last.length === 0 || size < 1) {
-		return none;
-	}
-
-	// Non-null assertion is guaranteed to be non-issue by the argument above.
-	return some(size === 1 ? last[0]! : last);
+	return pipe(
+		lastSlice.length > 0 && size > 0,
+		match(
+			(): Option<never> => none,
+			(): Option<NonNullable<Content> | ReadonlyArray<Content>> => some(size === 1 ? lastSlice[0]! : lastSlice)
+		)
+	);
 };
 
 export { arrayLast };

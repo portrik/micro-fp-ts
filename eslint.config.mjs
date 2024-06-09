@@ -27,7 +27,7 @@ export default tseslint.config(
 			'@stylistic': stylistic,
 		},
 		rules: {
-			...functional.configs?.['recommended']?.rules,
+			...functional.configs?.['strict']?.rules,
 			...functional.configs?.['stylistic']?.rules,
 			'@stylistic/indent': ['error', 'tab'],
 			'@stylistic/linebreak-style': ['error', 'unix'],
@@ -47,7 +47,9 @@ export default tseslint.config(
 				ignoreDeclarationSort: false,
 				'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
 				'allowSeparatedGroups': true
-			}]
+			}],
+			'functional/prefer-immutable-types': ['error', { 'enforcement': 'ReadonlyDeep' }],
+			'functional/type-declaration-immutability': ['off'],
 		},
 	},
 	{

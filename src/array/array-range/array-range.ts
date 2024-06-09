@@ -1,4 +1,8 @@
-import { Option, none, some } from 'fp-ts/lib/Option';
+// fp-ts functions can be without arguments
+/* eslint-disable functional/functional-parameters */
+import { Option, fromNullable, getOrElse, isNone, isSome, match, none, some } from 'fp-ts/lib/Option';
+import { match as booleanMatch } from 'fp-ts/boolean';
+import { pipe } from 'fp-ts/lib/function';
 
 /**
  * Create range from zero to the specified end. The end value is excluded.
@@ -35,22 +39,32 @@ function arrayRange(end?: number): Option<ReadonlyArray<number>>;
 function arrayRange(start: number, end: number): Option<ReadonlyArray<number>>;
 
 function arrayRange(left: number = 0, right?: number): Option<ReadonlyArray<number>> {
-	if (right == null && left < 1) {
-		return none;
-	}
+	const end = fromNullable(right);
+	const size = pipe(
+		end,
+		getOrElse(() => 0),
+		(rightBound: number) => Math.abs(rightBound - left)
+	);
 
-	const size = Math.abs((right ?? 0) - left);
-	if (size === 0) {
-		return none;
-	}
+	const isValidSlice = (isSome(end) || left > 0) && size > 0;
+	const direction = isNone(end) || left < end.value ? 1 : -1;
 
-	return some(Array.from({ length: size }, (_: never, index: number): number => {
-		if (right == null) {
-			return index;
-		}
-
-		return left + (left > right ? -index : index);
-	}));
+	return pipe(
+		isValidSlice,
+		booleanMatch(
+			(): Option<never> => none,
+			(): Option<ReadonlyArray<number>> => some(Array.from(
+				{ length: size },
+				(_: never, index: number): number => pipe(
+					end,
+					match(
+						(): number => index,
+						(): number => left + (index * direction)
+					)
+				)
+			))
+		)
+	);
 }
 
 export { arrayRange };
