@@ -6,3 +6,4 @@ export * from './array-range/array-range';
 export * from './deduplicate/deduplicate';
 export * from './filled-array/filled-array';
 export * from './is-sorted/is-sorted';
+export * from './map-array/map-array';
