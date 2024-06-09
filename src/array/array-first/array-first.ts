@@ -11,7 +11,7 @@ import { Option, none, some } from 'fp-ts/Option';
  * Get the first element from an array.
  *
  * @example
- * arrayFirst([1,2,3]); // Returns `1`
+ * arrayFirst([1,2,3]); // Returns `some(1)`
  *
  * @example
  * arrayFirst([]); // Returns `none`
@@ -26,7 +26,7 @@ function arrayFirst<Content>(array: ReadonlyArray<Content>): Option<Content>;
  * Get the first element from an array.
  *
  * @example
- * arrayFirst([1,2,3], 1); // Returns `1`
+ * arrayFirst([1,2,3], 1); // Returns `some(1)`
  *
  * @example
  * arrayFirst([], 1); // Returns `none`
@@ -42,7 +42,7 @@ function arrayFirst<Content>(array: ReadonlyArray<Content>, size: 1): Option<Con
  * Get the first N elements from an array.
  *
  * @example
- * arrayFirst([1,2,3], 4); // Returns `[1,2,3]`
+ * arrayFirst([1,2,3], 4); // Returns `some([1,2,3])`
  *
  * @example
  * arrayFirst([], 12); // Returns `none`

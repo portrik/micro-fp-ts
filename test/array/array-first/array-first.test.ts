@@ -9,7 +9,7 @@ import { none, some } from 'fp-ts/lib/Option';
 
 import { arrayFirst } from '../../../src';
 
-describe('first', function() {
+describe('array-first', function() {
 	it('should return none for empty array:', () => {
 		expect(arrayFirst([])).toEqual(none);
 	});

@@ -6,7 +6,7 @@ const comparators = {
 	ascending: function(a: number, b: number): number { return a - b; }
 };
 
-describe('checksort', () => {
+describe('is-sorted', () => {
 	test.each(fixtures)('Returns $expected for $array', ({ array, expected, comparator }) => {
 		const actual = isSorted(array, comparator === 'descending' ? comparators.descending : comparators.ascending);
 
