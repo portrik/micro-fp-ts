@@ -19,6 +19,7 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 - [isSorted](./src/array/isSorted/README.md)
 - [last](./src/array/last/README.md)
 - [map](./src/array/map/README.md)
+- [mirror](./src/array/mirror/README.md)
 - [range](./src/array/range/README.md)
 - [swap](./src/array/swap/README.md)
 - [unorderedRemove](./src/array/unorderedRemove/README.md)
