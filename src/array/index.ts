@@ -1,3 +1,4 @@
+export * from './cartesian/cartesian';
 export * from './chunk/chunk';
 export * from './contains/contains';
 export * from './deduplicate/deduplicate';

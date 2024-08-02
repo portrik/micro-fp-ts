@@ -10,6 +10,7 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 
 ### Array
 
+- [cartesian](./src/array/cartesian/README.md)
 - [chunk](./src/array/chunk/README.md)
 - [contains](./src/array/contains/README.md)
 - [deduplicate](./src/array/deduplicate/README.md)
