@@ -1,6 +1,7 @@
 # Awesome Micro npm Packages in Functional Style
 
 [![Build Status](https://github.com/portrik/micro-fp-ts/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/portrik/micro-fp-ts/actions/workflows/checks.yml)
+[![codecov](https://codecov.io/github/portrik/micro-fp-ts/branch/main/graph/badge.svg?token=KT3ND9EC74)](https://codecov.io/github/portrik/micro-fp-ts)
 [![Maintainability](https://api.codeclimate.com/v1/badges/40df8f5d5bd7b6cfd099/maintainability)](https://codeclimate.com/github/portrik/micro-fp-ts/maintainability)
 
 ---

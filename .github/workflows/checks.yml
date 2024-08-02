@@ -58,7 +58,7 @@ jobs:
                   cache: 'pnpm'
 
             - run: pnpm install
-            - run: pnpm test
+            - run: CI=TRUE pnpm test
 
             - uses: codecov/codecov-action@v4.5.0
               name: Upload code coverage
@@ -71,3 +71,4 @@ jobs:
               name: Upload test results
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
+                fail_ci_if_error: true

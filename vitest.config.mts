@@ -1,14 +1,18 @@
 import { defineConfig } from 'vitest/config';
 
+const isCI = process.env['CI'] !== undefined;
+
 export default defineConfig({
 	test: {
 		globals: true,
 		watch: false,
 		coverage: {
-			enabled: true,
+			enabled: isCI,
 			provider: 'v8',
-			// @ts-expect-error There seems to be incorrect typing. `reporter` vs `reporters`
-			reporters: ['junit']
+		},
+		reporters: ['default', 'junit'],
+		outputFile: {
+			junit: 'junit.xml'
 		}
 	}
 });
