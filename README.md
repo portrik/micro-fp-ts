@@ -1,5 +1,10 @@
 # Awesome Micro npm Packages in Functional Style
 
+[![Build Status](https://github.com/portrik/micro-fp-ts/actions/workflows/checks.yml/badge.svg?branch=main)](https://github.com/portrik/micro-fp-ts/actions/workflows/checks.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/40df8f5d5bd7b6cfd099/maintainability)](https://codeclimate.com/github/portrik/micro-fp-ts/maintainability)
+
+---
+
 A list of small, focused npm packages rewritten in functional programming style in Typescript. Linting is ensured by ESLint and testing is covered with vitest.
 
 This project uses and enforces the usage of `pnpm`.
