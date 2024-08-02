@@ -50,7 +50,8 @@ export default tseslint.config(
 			}],
 			'functional/prefer-immutable-types': ['error', { 'enforcement': 'ReadonlyDeep' }],
 			'functional/type-declaration-immutability': ['off'],
-			'unicorn/no-array-callback-reference': ['off']
+			'unicorn/no-array-callback-reference': ['off'],
+			'unicorn/filename-case': ['error', { case: 'camelCase' }]
 		},
 	},
 	{
