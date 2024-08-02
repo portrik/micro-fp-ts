@@ -1,3 +1,4 @@
+export * from './chunk/chunk';
 export * from './contains/contains';
 export * from './deduplicate/deduplicate';
 export * from './difference/difference';
