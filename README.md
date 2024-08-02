@@ -20,4 +20,5 @@ The list is taken from [Awesome Micro npm Packages](https://github.com/parro-it/
 - [last](./src/array/last/README.md)
 - [map](./src/array/map/README.md)
 - [range](./src/array/range/README.md)
+- [swap](./src/array/swap/README.md)
 - [unorderedRemove](./src/array/unorderedRemove/README.md)
