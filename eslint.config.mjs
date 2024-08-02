@@ -4,7 +4,6 @@ import functional from 'eslint-plugin-functional';
 import sonarjs from 'eslint-plugin-sonarjs';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
-// @ts-expect-error ESLint plugin definitions are not needed
 import unicorn from 'eslint-plugin-unicorn';
 
 export default tseslint.config(

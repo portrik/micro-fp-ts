@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "array",
-        "eslint"
+        "eslint",
+        "build"
     ]
 }
