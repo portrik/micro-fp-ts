@@ -6,7 +6,7 @@ on:
 
 jobs:
     types:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         name: Check Types
 
         steps:
@@ -24,7 +24,7 @@ jobs:
             - run: pnpm types
 
     lint:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         name: Check Linting
 
         steps:
@@ -42,7 +42,7 @@ jobs:
             - run: pnpm lint
 
     tests:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         name: Test
         needs: [types, lint]
 
