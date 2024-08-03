@@ -1,7 +1,7 @@
-import { ReadonlyNonEmptyArray, fromArray } from 'fp-ts/lib/ReadonlyNonEmptyArray';
-import { Option } from 'fp-ts/lib/Option';
+import { type ReadonlyNonEmptyArray, fromArray } from 'fp-ts/lib/ReadonlyNonEmptyArray';
+import type { Option } from 'fp-ts/lib/Option';
 import { Ord } from 'fp-ts/string';
-import { ReadonlyRecord } from 'fp-ts/lib/ReadonlyRecord';
+import type { ReadonlyRecord } from 'fp-ts/lib/ReadonlyRecord';
 import { collect } from 'fp-ts/Record';
 import { pipe } from 'fp-ts/lib/function';
 

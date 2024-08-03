@@ -1,9 +1,10 @@
+import { describe, expect, test } from 'vitest';
 import { array } from '../../../src';
 import { default as fixtures } from './fixtures.json' assert { type: 'json'};
 
 const comparators = {
-	descending: function(a: number, b: number): number { return b - a; },
-	ascending: function(a: number, b: number): number { return a - b; }
+	descending: (a: number, b: number): number => b - a,
+	ascending: (a: number, b: number): number => a - b
 };
 
 describe('isSorted', () => {

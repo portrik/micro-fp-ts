@@ -1,6 +1,6 @@
 // fp-ts functions can be without arguments
 /* eslint-disable functional/functional-parameters */
-import { Option, fromNullable, getOrElse, isNone, isSome, match, none, some } from 'fp-ts/lib/Option';
+import { type Option, fromNullable, getOrElse, isNone, isSome, match, none, some } from 'fp-ts/lib/Option';
 import { match as booleanMatch } from 'fp-ts/boolean';
 import { pipe } from 'fp-ts/lib/function';
 
@@ -38,7 +38,7 @@ function range(end?: number): Option<ReadonlyArray<number>>;
  */
 function range(start: number, end: number): Option<ReadonlyArray<number>>;
 
-function range(left: number = 0, right?: number): Option<ReadonlyArray<number>> {
+function range(left = 0, right?: number): Option<ReadonlyArray<number>> {
 	const end = fromNullable(right);
 	const size = pipe(
 		end,

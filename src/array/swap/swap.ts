@@ -1,8 +1,8 @@
 // fp-ts functions can be without arguments
 /* eslint-disable functional/functional-parameters */
-import * as Number from 'fp-ts/number';
-import { Option, fromNullable, isNone, isSome, match, none, some } from 'fp-ts/lib/Option';
-import { ReadonlyNonEmptyArray, fromArray, map, reduce, sortBy } from 'fp-ts/lib/ReadonlyNonEmptyArray';
+import * as FunctionalNumber from 'fp-ts/number';
+import { type Option, fromNullable, isNone, isSome, match, none, some } from 'fp-ts/lib/Option';
+import { type ReadonlyNonEmptyArray, fromArray, map, reduce, sortBy } from 'fp-ts/lib/ReadonlyNonEmptyArray';
 import { pipe } from 'fp-ts/lib/function';
 
 /**
@@ -26,7 +26,7 @@ import { pipe } from 'fp-ts/lib/function';
 function swap<Content>(array: ReadonlyArray<Content>, leftIndex: number, rightIndex: number): Option<ReadonlyNonEmptyArray<Content>> {
 	return pipe(
 		[leftIndex, rightIndex] as ReadonlyNonEmptyArray<number>,
-		sortBy([Number.Ord]),
+		sortBy([FunctionalNumber.Ord]),
 		map((index: number): Option<[number, NonNullable<Content>]> => {
 			const value = fromNullable(array[index]);
 
@@ -37,9 +37,13 @@ function swap<Content>(array: ReadonlyArray<Content>, leftIndex: number, rightIn
 			(): Option<never> => none,
 			// eslint-disable-next-line functional/prefer-immutable-types
 			(values: ReadonlyArray<[number, NonNullable<Content>]>): Option<ReadonlyNonEmptyArray<Content>> => fromArray([
+				// biome-ignore lint/style/noNonNullAssertion: Tuple is guaranteed to exist.
 				...array.slice(0, values[0]![0]),
+				// biome-ignore lint/style/noNonNullAssertion: Tuple is guaranteed to exist.
 				values[1]![1],
+				// biome-ignore lint/style/noNonNullAssertion: Tuple is guaranteed to exist.
 				...array.slice(values[0]![0] + 1, values[1]![0]),
+				// biome-ignore lint/style/noNonNullAssertion: Tuple is guaranteed to exist.
 				values[0]![1],
 			])
 		)

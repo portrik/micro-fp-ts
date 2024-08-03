@@ -1,0 +1,34 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"useSimplifiedLogicExpression": "error"
+			},
+			"correctness": {
+				"noUndeclaredVariables": "error",
+				"noUnusedImports": "error",
+				"noUnusedVariables": "error",
+				"noUnusedPrivateClassMembers": "error"
+			},
+			"style": {
+				"noDefaultExport": "error",
+				"noImplicitBoolean": "error",
+				"useBlockStatements": "error",
+				"useCollapsedElseIf": "error",
+				"useShorthandAssign": "error"
+			}
+		}
+	},
+	"files": {
+		"include": [
+			"./src/**/*.ts",
+			"./test/**/*.ts"
+		]
+	}
+}

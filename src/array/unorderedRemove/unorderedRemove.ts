@@ -1,5 +1,5 @@
 /* eslint-disable functional/functional-parameters */
-import { Option, fromNullable, match, none, some } from 'fp-ts/lib/Option';
+import { type Option, fromNullable, match, none, some } from 'fp-ts/lib/Option';
 import { pipe } from 'fp-ts/lib/function';
 
 /**

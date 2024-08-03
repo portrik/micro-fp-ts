@@ -7,7 +7,7 @@
 
 // fp-ts functions can be without arguments
 /* eslint-disable functional/functional-parameters */
-import { Option, none, some } from 'fp-ts/lib/Option';
+import { type Option, none, some } from 'fp-ts/lib/Option';
 import { match } from 'fp-ts/lib/boolean';
 import { pipe } from 'fp-ts/lib/function';
 
@@ -58,7 +58,7 @@ function last<Content>(array: ReadonlyArray<Content>, size: 1): Option<Content>;
  */
 function last<Content>(array: ReadonlyArray<Content>, size: number): Option<Content>;
 
-function last<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<NonNullable<Content> | ReadonlyArray<Content>> {
+function last<Content>(array: ReadonlyArray<Content>, size = 1): Option<NonNullable<Content> | ReadonlyArray<Content>> {
 	const lastSlice: ReadonlyArray<Content>= pipe(
 		array,
 		(initialArray: ReadonlyArray<Content>): ReadonlyArray<Content> => [...initialArray].reverse(),
@@ -70,6 +70,7 @@ function last<Content>(array: ReadonlyArray<Content>, size: number = 1): Option<
 		lastSlice.length > 0 && size > 0,
 		match(
 			(): Option<never> => none,
+			// biome-ignore lint/style/noNonNullAssertion: Using the size check, the value at index 0 is guaranteed to exist.
 			(): Option<NonNullable<Content> | ReadonlyArray<Content>> => some(size === 1 ? lastSlice[0]! : lastSlice)
 		)
 	);

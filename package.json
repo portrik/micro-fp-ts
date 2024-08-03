@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "types": "tsc",
-    "lint": "eslint",
+    "lint:eslint": "eslint",
+    "lint:biome": "biome lint",
+    "lint": "pnpm lint:eslint && pnpm lint:biome",
     "test": "vitest",
     "all": "pnpm types && pnpm lint && pnpm test",
     "preinstall": "npx only-allow pnpm"
@@ -14,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@eslint/js": "^9.8.0",
     "@stylistic/eslint-plugin": "^2.6.1",
     "@types/node": "^22.0.3",

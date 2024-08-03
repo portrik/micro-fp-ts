@@ -1,5 +1,5 @@
 /* eslint-disable functional/functional-parameters */
-import { Option } from 'fp-ts/lib/Option';
+import type { Option } from 'fp-ts/lib/Option';
 import { fromArray } from 'fp-ts/lib/ReadonlyNonEmptyArray';
 import { match } from 'fp-ts/lib/boolean';
 import { pipe } from 'fp-ts/lib/function';

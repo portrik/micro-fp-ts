@@ -1,7 +1,7 @@
 // Disabled due to match
 /* eslint-disable functional/functional-parameters */
-import { Option, isSome, match, none, some } from 'fp-ts/lib/Option';
-import { ReadonlyNonEmptyArray, fromArray } from 'fp-ts/lib/ReadonlyNonEmptyArray';
+import { type Option, isSome, match, none, some } from 'fp-ts/lib/Option';
+import { type ReadonlyNonEmptyArray, fromArray } from 'fp-ts/lib/ReadonlyNonEmptyArray';
 import { map, reduce } from 'fp-ts/lib/ReadonlyArray';
 import { pipe } from 'fp-ts/lib/function';
 

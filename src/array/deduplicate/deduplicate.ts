@@ -1,4 +1,4 @@
-import { Eq } from 'fp-ts/lib/Eq';
+import type { Eq } from 'fp-ts/lib/Eq';
 import { uniq } from 'fp-ts/Array';
 
 type Hasher<Content> = (input: Content) => string;

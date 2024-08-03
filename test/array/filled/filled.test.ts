@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { none, some } from 'fp-ts/lib/Option';
 
 import { array } from '../../../src';

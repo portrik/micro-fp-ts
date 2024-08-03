@@ -1,4 +1,4 @@
-import { ReadonlyRecord } from 'fp-ts/lib/ReadonlyRecord';
+import type { ReadonlyRecord } from 'fp-ts/lib/ReadonlyRecord';
 import { pipe } from 'fp-ts/lib/function';
 import { reduce } from 'fp-ts/lib/ReadonlyArray';
 
