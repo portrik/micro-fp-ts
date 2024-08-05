@@ -22,7 +22,7 @@
     "@types/node": "^22.0.3",
     "@vitest/coverage-v8": "^2.0.5",
     "eslint": "^9.8.0",
-    "eslint-plugin-functional": "^6.6.3",
+    "eslint-plugin-functional": "^7.0.0",
     "eslint-plugin-sonarjs": "^1.0.4",
     "eslint-plugin-unicorn": "^55.0.0",
     "fp-ts": "^2.16.9",
