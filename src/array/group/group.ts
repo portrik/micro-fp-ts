@@ -16,7 +16,7 @@ import { reduce } from 'fp-ts/lib/ReadonlyArray';
 function group<Value extends Record<string, unknown>, Key extends keyof Value>(values: ReadonlyArray<Value>, key: Key): ReadonlyRecord<string, ReadonlyArray<Value>> {
 	return pipe(
 		values,
-		reduce({}, (result: ReadonlyRecord<string, ReadonlyArray<Value>>, value: Value): ReadonlyRecord<string, ReadonlyArray<Value>> => {
+		reduce({}, (result: ReadonlyRecord<string, ReadonlyArray<Value>>, value: Readonly<Value>): ReadonlyRecord<string, ReadonlyArray<Value>> => {
 			const index =`${value[key]}`;
 			const current = result[index];
 

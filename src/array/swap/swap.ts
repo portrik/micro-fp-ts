@@ -35,7 +35,6 @@ function swap<Content>(array: ReadonlyArray<Content>, leftIndex: number, rightIn
 		reduce(some([]), (result: Option<ReadonlyArray<[number, NonNullable<Content>]>>, value: Option<[number, NonNullable<Content>]>): Option<ReadonlyArray<[number, NonNullable<Content>]>> => isNone(result) || isNone(value) ? none : some([...result.value, value.value])),
 		match(
 			(): Option<never> => none,
-			// eslint-disable-next-line functional/prefer-immutable-types
 			(values: ReadonlyArray<[number, NonNullable<Content>]>): Option<ReadonlyNonEmptyArray<Content>> => fromArray([
 				// biome-ignore lint/style/noNonNullAssertion: Tuple is guaranteed to exist.
 				...array.slice(0, values[0]![0]),
