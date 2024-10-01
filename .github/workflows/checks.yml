@@ -60,7 +60,7 @@ jobs:
             - run: pnpm install
             - run: CI=TRUE pnpm test
 
-            - uses: codecov/codecov-action@v4.5.0
+            - uses: codecov/codecov-action@v4.6.0
               name: Upload code coverage
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
